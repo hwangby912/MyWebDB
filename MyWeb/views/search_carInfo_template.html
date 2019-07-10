@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>블록체인 보안 웹</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="javascripts/my.js"></script>
+</head>
+<body style="background-color:orange">  
+  <div class="container">
+    <h2 style="background-color: chartreuse;color:black; padding: 20px;text-align: center">자동차 일반 사양 정보 조회</h2>
+    
+      <select id="searchType" style="background-color: chartreuse;color:black; padding: 10px;text-align: center">
+        <option>조회타입</option>
+        <option value="0">차량번호</option>
+        <option value="1">차대번호</option>
+      </select>
+
+      <br><br>
+      <div class="form-group">        
+        <input id="car_num_input" type="text" class="form-control"  placeholder="차량(대)번호를 띄워 쓰기 없이 입력하세요. 예) 01가1234" name="car_num">
+      </div>      
+      <button id="carBasicInfoSearch_btn" class="btn btn-default" style="background-color:chartreuse;color:black;">조회</button>
+    
+    <br><br>
+    조회 결과 예 <br>
+    <div id="carBasicInfoSearch_div">
+        <img src='images/carBasicInfoSearchEx.png' width="400px">
+    </div>
+  </div>
+  
+  </body>
+  </html>
