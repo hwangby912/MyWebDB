@@ -1,9 +1,9 @@
-var createError = require('http-errors');
-var express = require('express');
+var createError = require('./node_modules/http-errors');
+var express = require('./node_modules/express');
 var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var session=require('express-session');
+var cookieParser = require('./node_modules/cookie-parser');
+var logger = require('./node_modules/morgan');
+var session=require('./node_modules/express-session');
 
 myDB={};
 
@@ -13,20 +13,20 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 //동적 view ejs,pug,jsp,php,asp
 app.set('view engine', 'ejs');
-app.engine('html',require('ejs').renderFile);
+app.engine('html',require('./node_modules/ejs/lib/ejs').renderFile);
 
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 //js,css,img
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser('!@#$%^&*()전은수는예쁘다'));
+app.use(cookieParser('My Web'));
 app.use(session({
-  name:'JES_SID',
+  name:'HBY_SID',
   timeout:30,
   resave:false,//재할당 x
   saveUninitialized:false,//저장 내용없으면 할당 받지 않겠다?
-  secret:'!@#$%^&*()전은수는예쁘다',
+  secret:'My Web',
   cookie:{
     httpOnly:true,
     secure:false

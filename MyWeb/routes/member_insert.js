@@ -1,6 +1,6 @@
-var express = require('express');
+var express = require('../node_modules/express');
 var router = express.Router();
-const mysql = require('mysql');
+const mysql = require('../node_modules/mysql');
 
 /* post member_insert */
 router.post('/', function (req, res, next) {

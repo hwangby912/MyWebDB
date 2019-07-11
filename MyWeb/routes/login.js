@@ -1,6 +1,6 @@
-var express = require('express');
+var express = require('../node_modules/express');
 var router = express.Router();
-const mysql = require('mysql'); //1 드라이버 등록
+const mysql = require('../node_modules/mysql'); //1 드라이버 등록
 
 /* post login 처리 */
 router.post('/', function (req, res, next) {
@@ -21,16 +21,16 @@ router.post('/', function (req, res, next) {
     }
     console.log("DB연결됨:", req.body.login_user_id);
     const sql =
-      `select * from member where id='${req.body.login_user_id}'`;
+      `select * from member where id=?`;
     console.log(sql); // 3 구문 생성
-    con.query(sql, (err, rs, fields) => { //4 SQL 전송
+    con.query(sql, [req.body.login_user_id], (err, rs, fields) => { //4 SQL 전송
       if (err) {
         console.error(err.message);
         result.msg = '다시 로그인해주세요';
         res.json(JSON.stringify(result));
       } else {
         if (rs[0] && rs[0].name) { //로그인 ok
-          console.log(rs[0].name);
+          console.log('rs[0].name : ', rs[0].name);
           req.session.user_id = req.body.login_user_id;
           req.session.name = rs[0].name;
           res.redirect('/');
